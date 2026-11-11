@@ -58,9 +58,9 @@ The branching number of a tree $T$ rooted at $o$ is
 \[
 \br T=\sup\Bigl\{\lambda\ge1:\ \inf_{\Pi}\sum_{e\in\Pi}\lambda^{-|e|}>0\Bigr\},
 \]
-where $\Pi$ ranges over the finite sets of edges separating $o$ from infinity and $|e|$ is the distance from $o$ to the endpoint of $e$ farther from $o$ \cite[Section~1.2]{LP}. By a theorem of Lyons \cite{Lyons1990}, $\br T$ governs random walk and percolation on $T$; in particular the critical probability of Bernoulli percolation on $T$ is $1/\br T$.
+where $\Pi$ ranges over the finite sets of edges separating $o$ from infinity and $|e|$ is the distance from $o$ to the endpoint of $e$ farther from $o$ \cite[Section~1.2]{LP}. The branching number was introduced by Lyons \cite{Lyons1990}. By a theorem of Lyons \cite{Lyons1990}, $\br T$ governs random walk and percolation on $T$; in particular the critical probability of Bernoulli percolation on $T$ is $1/\br T$.
 
-Lyons and Peres \cite[Question~3.12]{LP} ask the following. \emph{If $T$ is a geodesic spanning tree of the Cayley graph of a finitely generated group of growth rate $b$, is $\br T=b$?} They show that the answer is yes for the lexicographically minimal geodesic tree, which is subperiodic, so that its branching number equals its growth \cite[Section~3.4]{LP}. A general geodesic tree need not be subperiodic: the choice of parent at each vertex is arbitrary, and the subtrees below different vertices of the same sphere can look very different. Liu and Xiang \cite[Section~3.2]{LX} obtain $\br T=\operatorname{gr}G$ in a quasi-transitive graph after constructing a lexicographic geodesic tree. Their Lemma~3.5 is worded more generally, but its proof goes through subperiodicity and does not cover an arbitrary geodesic spanning tree. We give a direct proof for every such tree.
+Lyons and Peres \cite[Question~3.12]{LP} ask the following. \emph{If $T$ is a geodesic spanning tree of the Cayley graph of a finitely generated group of growth rate $b$, is $\br T=b$?} They show that the answer is yes for the lexicographically minimal geodesic tree, which is subperiodic, so that its branching number equals its growth by a theorem of Furstenberg \cite{Furstenberg1970} (see \cite[Section~3.4]{LP}). A general geodesic tree need not be subperiodic: the choice of parent at each vertex is arbitrary, and the subtrees below different vertices of the same sphere can look very different. Liu and Xiang \cite[Section~3.2]{LX} obtain $\br T=\operatorname{gr}G$ in a quasi-transitive graph after constructing a lexicographic geodesic tree. Their Lemma~3.5 is worded more generally, but its proof goes through subperiodicity and does not cover an arbitrary geodesic spanning tree. We give a direct proof for every such tree.
 
 \begin{theorem}\label{thm:main}
 Let $G$ be an infinite, connected, locally finite, quasi-transitive graph with growth rate $b$, and let $T$ be a geodesic spanning tree of $G$ rooted at $o$. Then $\br T=b$. If $G$ is vertex-transitive, then $\sum_{e\in\Pi}b^{-|e|}\ge 1$ for every finite edge cutset $\Pi$ of $T$.
@@ -83,7 +83,7 @@ Let $f(n)=\max_i|B_n(o_i)|$. The limit $b=\lim_n f(n)^{1/n}$ exists, equals $\li
 \end{lemma}
 
 \begin{proof}
-Every point of $B_{m+n}(o_j)$ lies within distance $n$ of a point of $B_m(o_j)$, so $B_{m+n}(o_j)$ is covered by the balls $B_n(x)$, $x\in B_m(o_j)$, each of size at most $f(n)$. Hence $f(m+n)\le f(m)f(n)$, and by Fekete's lemma $b=\lim f(n)^{1/n}=\inf_n f(n)^{1/n}$ exists and $f(n)\ge b^n$ for all $n$. Since $B_{n-R}(o_i)\subseteq B_n(o)\subseteq B_{n+R}(o_i)$ for each $i$, we get $f(n-R)\le|B_n(o)|\le f(n+R)$, which gives both remaining claims.
+Every point of $B_{m+n}(o_j)$ lies within distance $n$ of a point of $B_m(o_j)$, so $B_{m+n}(o_j)$ is covered by the balls $B_n(x)$, $x\in B_m(o_j)$, each of size at most $f(n)$. Hence $f(m+n)\le f(m)f(n)$, and by Fekete's lemma \cite{Fekete1923} $b=\lim f(n)^{1/n}=\inf_n f(n)^{1/n}$ exists and $f(n)\ge b^n$ for all $n$. Since $B_{n-R}(o_i)\subseteq B_n(o)\subseteq B_{n+R}(o_i)$ for each $i$, we get $f(n-R)\le|B_n(o)|\le f(n+R)$, which gives both remaining claims.
 \end{proof}
 
 For $x\in V(G)$ and $t>b$ put $Z_x(t)=\sum_{y}t^{-\dist(x,y)}$ and $Z(t)=Z_o(t)$. Summing by spheres and then by parts,
@@ -140,11 +140,11 @@ The bound is uniform in $\Pi$, so $\br T\ge b$. In the vertex-transitive case ta
 \end{proof}
 
 \begin{proof}[Proof of \cref{cor:cayley}]
-The question concerns infinite groups. A Cayley graph of an infinite finitely generated group with respect to a finite generating set is infinite, connected, locally finite and vertex-transitive, so \cref{thm:main} applies. The statement on percolation is Lyons's theorem $p_c(T)=1/\br T$ \cite{Lyons1990}.
+The question concerns infinite groups; for growth of finitely generated groups see Milnor \cite{Milnor1968} and de la Harpe \cite{dlH}. A Cayley graph of an infinite finitely generated group with respect to a finite generating set is infinite, connected, locally finite and vertex-transitive, so \cref{thm:main} applies. The statement on percolation is Lyons's theorem $p_c(T)=1/\br T$ \cite{Lyons1990}.
 \end{proof}
 
 \begin{remark}
-Dead ends of $G$, such as those of the lamplighter group \cite[Section~3.4]{LP}, cause no difficulty: a subtree $D(v)$ may be finite, and \cref{lem:subtree} only bounds it from above. The proof never asks an individual subtree to be large; the lower bound comes from the whole graph through $Z(t)$, and for a fixed cutset only the finitely many vertices of $K$ are lost.
+Dead ends of $G$, such as those of the lamplighter group \cite{ClearyTaback}, \cite[Section~3.4]{LP}, cause no difficulty: a subtree $D(v)$ may be finite, and \cref{lem:subtree} only bounds it from above. The proof never asks an individual subtree to be large; the lower bound comes from the whole graph through $Z(t)$, and for a fixed cutset only the finitely many vertices of $K$ are lost.
 \end{remark}
 
 \section*{Acknowledgements and funding}
